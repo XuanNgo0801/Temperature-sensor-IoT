@@ -1,0 +1,16 @@
+services:
+  timescale:
+    container_name: timescale4
+    image: timescale/timescaledb:latest-pg12
+    environment:
+      - TZ=Asia/Ho_Chi_Minh
+      - POSTGRES_PASSWORD=1
+    ports:
+      - 5432:5432
+    restart: always
+  test:
+    container_name: test
+    image: my-golang-test
+    ports:
+      - 8081:8080
+    restart: always
